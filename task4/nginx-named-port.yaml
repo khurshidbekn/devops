@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: v1
+  name: nginx-named-port
+  namespace: x-namozov
+spec:
+  selector:
+    matchLabels:
+      application: v1
+  template:
+    metadata:
+      labels:
+        application: v1
+    spec:
+      containers:
+      - image: nginx:1.18
+        name: http-port
+        ports:
+        - containerPort: 80

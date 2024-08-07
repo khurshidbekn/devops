@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-echo
+  namespace: x-namozov
+spec:
+  containers:
+    - name: busybox-echo
+      image: busybox:latest
+      command: ["echo", "hello world"]

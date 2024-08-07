@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: flask-app-my
+  name: flask-app-my
+  namespace: x-namozov
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app-my
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flask-app-my
+    spec:
+      containers:
+      - image: nvrbckdown/flask-app:v1
+        name: flask-app-my
+        envFrom:
+        - configMapRef:
+            name: my-configmap
+        - secretRef:
+            name: my-secret
+
+

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flask-app-my
+  name: flask-app-my
+  namespace: x-namozov
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app-my
+  template:
+    metadata:
+      labels:
+        app: flask-app-my
+      annotations:
+        description: "This is a deployment for the flask-app-my application."
+        contact: "admin@example.com"
+    spec:
+      containers:
+      - image: nvrbckdown/flask-app:v1
+        name: flask-app-my
+        envFrom:
+        - configMapRef:
+            name: my-configmap
+        - secretRef:
+            name: my-secret
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+          limits:
+            cpu: "200m"
+            memory: "128Mi"
+      priorityClassName: xurshid-pod-too-important
+

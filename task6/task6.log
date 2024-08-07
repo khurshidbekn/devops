@@ -1,0 +1,2 @@
+NAME                                READY   STATUS    RESTARTS   AGE   IP            NODE    NOMINATED NODE   READINESS GATES
+nginx-named-port-5c77677f7f-68zft   1/1     Running   0          16m   10.233.71.4   node3   <none>           <none>
